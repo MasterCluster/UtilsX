@@ -45,12 +45,12 @@ import androidx.lifecycle.LifecycleOwner
  *         // All permissions granted, ok to proceed!
  *     }
  *
- *     override fun onShowPermissionNotGranted(context: Context) {
+ *     override fun onShowPermissionNotGranted() {
  *         // The user denied to grant permission(s) when prompted.
  *         // Show a dialog explaining why the app requires that permission(s).
  *     }
  *
- *     override fun onShowPermissionRationale(context: Context) {
+ *     override fun onShowPermissionRationale() {
  *         // User chose to not grant the permission(s) permanently,
  *         // so the system won't show the permission prompt again.
  *         // The user has to grant the permission(s) manually in the app settings.
@@ -87,7 +87,7 @@ abstract class BasePermissionRequester(
             if (hasRequiredPermissions(permissions)) {
                 onPermissionGranted()
             } else {
-                onShowPermissionNotGranted(activity)
+                onShowPermissionNotGranted()
             }
         }
     }
@@ -97,20 +97,23 @@ abstract class BasePermissionRequester(
             hasRequiredPermissions(activity) -> {
                 onPermissionGranted()
             }
+
             shouldShowRequestPermissionRationale(activity) -> {
-                onShowPermissionRationale(activity)
+                onShowPermissionRationale()
             }
+
             else -> {
                 resultLauncher.launch(requiredPermissions)
             }
         }
     }
 
+
     abstract fun onPermissionGranted()
 
-    abstract fun onShowPermissionRationale(context: Context)
+    abstract fun onShowPermissionNotGranted()
 
-    abstract fun onShowPermissionNotGranted(context: Context)
+    abstract fun onShowPermissionRationale()
 
 
     private fun hasRequiredPermissions(context: Context) =
