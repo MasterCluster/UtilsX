@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2022 Leonid Belousov / mastercluster.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.mastercluster.ui
 
 import android.os.Bundle
@@ -10,9 +26,9 @@ import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 /**
- * 2022 (c) Leonid Belousov / mastercluster.com
+ * [ViewBindingFragment]
  *
- * Base [Fragment] class with [ViewBinding] support as a generic type parameter.
+ * A base [Fragment] class with [ViewBinding] support as a generic type parameter.
  * Eliminates the need of writing VB management boilerplate code.
  *
  * See also: [based on](https://stackoverflow.com/questions/62407823/how-using-viewbinding-with-an-abstract-base-class)
