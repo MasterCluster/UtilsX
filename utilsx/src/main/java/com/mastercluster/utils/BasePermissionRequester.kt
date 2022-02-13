@@ -45,7 +45,7 @@ import androidx.lifecycle.LifecycleOwner
  *         // All permissions granted, ok to proceed!
  *     }
  *
- *     override fun onShowPermissionNotGranted() {
+ *     override fun onPermissionNotGranted() {
  *         // The user denied to grant permission(s) when prompted.
  *         // Show a dialog explaining why the app requires that permission(s).
  *     }
@@ -87,7 +87,7 @@ abstract class BasePermissionRequester(
             if (hasRequiredPermissions(permissions)) {
                 onPermissionGranted()
             } else {
-                onShowPermissionNotGranted()
+                onPermissionNotGranted()
             }
         }
     }
@@ -111,7 +111,7 @@ abstract class BasePermissionRequester(
 
     abstract fun onPermissionGranted()
 
-    abstract fun onShowPermissionNotGranted()
+    abstract fun onPermissionNotGranted()
 
     abstract fun onShowPermissionRationale()
 
